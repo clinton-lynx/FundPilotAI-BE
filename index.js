@@ -11,11 +11,11 @@ const fetch = require('node-fetch');
 // const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;  
 
 // Enable CORS for a specific origin
 const corsOptions = {
-  origin: 'https://mansa-pay-fe.vercel.app', // Allow requests from any origin
+  origin: 'https://fund-pilot-fe.vercel.app/', // Allow requests from any origin
   // origin: 'http://localhost:5173', // Allow requests from any origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
@@ -98,15 +98,15 @@ async function runChat(userInput, campaignDetails) {
   
   // Use campaignDetails to customize the chat history
   const chatHistory = [
-    { role: "user", parts: [{ text: `you are mansa AI, heres what you should know already you are a chat pal in a crowdfunding appliccation called mansapay:,Features
+    { role: "user", parts: [{ text: `you are FundPilot copilot, heres what you should know already you are a chat pal in a crowdfunding appliccation called FundPilot:,Features
 Our Team
 Use Cases
-Harness the Power of smart Crowdfunding withMansaPay.
-MansaPay simplifies crowdfunding with an innovative approach that combines payment automation and AI-driven insights, delivering greater transparency, efficiency, and community impact.
+Harness the Power of smart Crowdfunding withFundPilot.
+FundPilot simplifies crowdfunding with an innovative approach that combines payment automation and AI-driven insights, delivering greater transparency, efficiency, and community impact.
 
 hero img
-Why Choose MansaPay?
-Discover what makes MansaPay the ultimate choice for crowdfunding with AI-driven insights, community empowerment, and flexibility to scale with your project’s needs.
+Why Choose FundPilot?
+Discover what makes FundPilot the ultimate choice for crowdfunding with AI-driven insights, community empowerment, and flexibility to scale with your project’s needs.
 
 AI-Powered Assistance
 AI-Powered Assistance
@@ -114,23 +114,23 @@ Leverage our AI assistant for instant answers to contributor inquiries and campa
 
 Effortless Payment Links
 Effortless Payment Links
-Create and share payment links with ease. MansaPay simplifies payment collection, letting you focus on making an impact while we handle the logistics.
+Create and share payment links with ease. FundPilot simplifies payment collection, letting you focus on making an impact while we handle the logistics.
 
 Scalable for Any Campaign
 Scalable for Any Campaign
-Whether for small projects or large initiatives, MansaPay adapts to your funding needs, providing flexibility for campaigns of any size.
+Whether for small projects or large initiatives, FundPilot adapts to your funding needs, providing flexibility for campaigns of any size.
 
 Use Cases
-Discover how MansaPay can transform community and individual-driven campaigns across various needs.
+Discover how FundPilot can transform community and individual-driven campaigns across various needs.
 
 
 Event Crowdfunding
 Event Crowdfunding
-MansaPay makes it easy to fund community events, workshops, and festivals. Supporters can contribute seamlessly, and organizers can monitor progress at every stage.
+FundPilot makes it easy to fund community events, workshops, and festivals. Supporters can contribute seamlessly, and organizers can monitor progress at every stage.
 
 
 Tools and APIs Used
-Explore the technology stack that makes MansaPay secure, scalable, and innovative.
+Explore the technology stack that makes FundPilot secure, scalable, and innovative.
 
 Frontend
 React
@@ -172,7 +172,7 @@ Adeoti Clinton [Lynx] profile picture
 Adeoti Clinton [Lynx]
 Software Engineer [Frontend]
 
-Leading the MansaPay project with a vision for community impact, Clinton also built the frontend interface and manages product strategy, team coordination, and pitch materials.
+Leading the FundPilot project with a vision for community impact, Clinton also built the frontend interface and manages product strategy, team coordination, and pitch materials.
 
 Olayori Latubosun profile picture
 Olayori Latubosun
@@ -183,9 +183,9 @@ Focused on implementing secure payment flows and handling server-side logic. Res
 Features
 Our Team
 Use Cases  Here's what I know about the campaign: ${campaignContext} `} ] },
-    { role: "model", parts: [{ text: `Hello, I'm Mansa ai. Ask me whattever youll like to know about ${campaignDetails.title || "This "} campaign.`} ] },
+    { role: "model", parts: [{ text: `Hello, I'm FundPilot copilot. Ask me whattever youll like to know about ${campaignDetails.title || "This "} campaign.`} ] },
     { role: "user", parts: [{ text: `hi`} ] },
-    { role: "model", parts: [{ text: `Hello, I'm Mansa ai. Ask me whattever youll like to know about ${campaignDetails.title || "This "} campaign. `} ] },
+    { role: "model", parts: [{ text: `Hello, I'm FundPilot copilot. Ask me whattever youll like to know about ${campaignDetails.title || "This "} campaign. `} ] },
     { role: "user", parts: [{ text: userInput }] }, // user message
   ];
 
@@ -258,7 +258,7 @@ app.post('/enhance-title', async (req, res) => {
 
     // History for the AI prompt, focusing on title enhancement
     const chatHistory = [
-      { role: "user", parts: [{ text: `This is a crowdfunding application called MansaPay. Enhance the following campaign title to make it more engaging and impactful and not more than 5 words, focusing on the personal story: "${title}" and return response in markdown` }] }
+      { role: "user", parts: [{ text: `This is a crowdfunding application called FundPilot. Enhance the following campaign title to make it more engaging and impactful and not more than 5 words, focusing on the personal story: "${title}" and return response in markdown` }] }
     ];
 
     const chat = model.startChat({
@@ -304,7 +304,7 @@ app.post('/enhance-description', async (req, res) => {
       { 
         role: "user", 
         parts: [{ 
-          text: `This is a crowdfunding application called MansaPay. Enhance the following campaign description to make it more engaging, focusing on the personal story and inspiring potential donors: "${description}"` 
+          text: `This is a crowdfunding application called FundPilot. Enhance the following campaign description to make it more engaging, focusing on the personal story and inspiring potential donors: "${description}"` 
         }] 
       }
     ];
